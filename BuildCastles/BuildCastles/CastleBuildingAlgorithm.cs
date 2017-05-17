@@ -33,11 +33,28 @@ namespace BuildCastles
                 }
             }
         }
-        public static int count_castles(this IEnumerable<int> source)
+        public static int count_turning(this IEnumerable<Trend> source)
         {
+            Trend? previous;
+            Trend? current = null;
             var result = 0;
-           
+            foreach (var trend in source)
+            {
+                previous = current;
+                current = trend;
+                if (previous.HasValue && current.HasValue)
+                {
+                    if (previous != current)
+                        result++;
+                }
+            }
+
             return result;
+        }
+
+        public static int count_castles(this IEnumerable<int> heights)
+        {
+            return heights.to_trends().count_turning();
         }
     }
     public enum Trend
