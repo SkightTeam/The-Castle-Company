@@ -78,11 +78,18 @@
     <Reference Include="System.Xml.Serialization" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BuildCastlesSpecs.cs" />
     <Compile Include="MSpecSelfTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BuildCastles\BuildCastles.csproj">
+      <Project>{02416162-3A05-49EA-BEE0-8F7D6F9CEFA8}</Project>
+      <Name>BuildCastles</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
