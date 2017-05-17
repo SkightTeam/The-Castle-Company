@@ -1,0 +1,24 @@
+
+###############
+#    folder   #
+###############
+.idea/
+.vs/
+.tmp
+typings
+obj
+bin
+
+
+###############
+#     file    #
+###############
+*.lib
+*.cache
+*.user
+*.suo
+*.dotCover
+*.ncrunchproject
+*.ncrunchsolution
+*.db
+
