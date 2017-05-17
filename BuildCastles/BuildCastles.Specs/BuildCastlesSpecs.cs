@@ -1,4 +1,5 @@
-﻿using BuildCastles;
+﻿using System.Linq;
+using BuildCastles;
 using Machine.Specifications;
 
 namespace BuildCastles
@@ -15,5 +16,11 @@ namespace BuildCastles
 
         It should_count_1 = () => result.ShouldEqual(1);
 
+    }
+
+    public class TransformTrendSpecs
+    {
+        It should= ()
+            =>new[] {1, 2, 3, 4}.to_trends().SequenceEqual(new[] {Trend.Down, Trend.Up, Trend.Up}).ShouldBeTrue();
     }
 }
