@@ -11,16 +11,25 @@ namespace BuildCastles
         {
             int? previous;
             int? current=null;
+            Trend? previous_trend = null;
             foreach (var item in source)
             {
                 previous = current;
                 current = item;
                 if (previous.HasValue && current.HasValue)
                 {
-                    if(current > previous)
+                    if (current > previous)
+                    {
+                        previous_trend=Trend.Up;
                         yield return Trend.Up;
-                    if(current < previous)
+                    }else if (current < previous)
+                    {
+                        previous_trend = Trend.Down;
                         yield return Trend.Down;
+                    }else if (previous_trend.HasValue)
+                    {
+                        yield return previous_trend.Value;
+                    }
                 }
             }
         }
